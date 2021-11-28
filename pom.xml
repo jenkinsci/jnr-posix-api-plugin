@@ -58,4 +58,16 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jenkins-ci.tools</groupId>
+                <artifactId>maven-hpi-plugin</artifactId>
+                <configuration>
+                    <maskClasses>com.kenai.jffi. com.kenai.jnr. hudson.os.PosixAPI jni. jnr. org.objectweb.asm.</maskClasses>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
