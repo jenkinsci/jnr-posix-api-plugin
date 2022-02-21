@@ -1,5 +1,6 @@
 package hudson.os;
 
+import jenkins.util.SystemProperties;
 import jnr.constants.platform.Errno;
 import jnr.posix.POSIX;
 import jnr.posix.POSIXFactory;
@@ -13,6 +14,7 @@ import jnr.posix.util.DefaultPOSIXHandler;
 public class PosixAPI {
 
     private static POSIX posix;
+    private static /* Script Console modifiable */ boolean VERBOSE = SystemProperties.getBoolean(PosixAPI.class.getName() + ".verbose");
 
     /**
      * Load the JNR implementation of the POSIX APIs for the current platform. Runtime exceptions
@@ -32,6 +34,11 @@ public class PosixAPI {
                 @Override
                 public void error(Errno error, String methodName, String extraData) {
                     throw new PosixException("native error calling " + methodName + ": " + error.description() + " " + extraData);
+                }
+
+                @Override
+                public boolean isVerbose() {
+                    return VERBOSE;
                 }
             }, true);
         }
