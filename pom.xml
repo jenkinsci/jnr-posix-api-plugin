@@ -31,6 +31,7 @@
         <jenkins.version>2.303.3</jenkins.version>
         <java.level>8</java.level>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
+        <asm.version>9.2</asm.version>
     </properties>
 
     <licenses>
@@ -58,6 +59,31 @@
             <groupId>com.github.jnr</groupId>
             <artifactId>jnr-posix</artifactId>
             <version>3.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-analysis</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-commons</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-tree</artifactId>
+            <version>${asm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-util</artifactId>
+            <version>${asm.version}</version>
         </dependency>
     </dependencies>
 
