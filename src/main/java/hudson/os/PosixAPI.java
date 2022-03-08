@@ -1,7 +1,6 @@
 package hudson.os;
 
 import jenkins.util.SystemProperties;
-import jnr.constants.platform.Errno;
 import jnr.posix.POSIX;
 import jnr.posix.POSIXFactory;
 import jnr.posix.util.DefaultPOSIXHandler;
