@@ -18,7 +18,7 @@ public class PosixAPI {
 
     /**
      * Load the JNR implementation of the POSIX APIs for the current platform. Runtime exceptions
-     * will be of type {@link PosixException}. {@link IllegalStateException} will be thrown for
+     * will be of type {@link RuntimeException}. {@link IllegalStateException} will be thrown for
      * methods not implemented on this platform.
      *
      * @return some implementation (even on Windows or unsupported Unix)
@@ -26,16 +26,6 @@ public class PosixAPI {
     public static synchronized POSIX jnr() {
         if (posix == null) {
             posix = POSIXFactory.getPOSIX(new DefaultPOSIXHandler() {
-                @Override
-                public void error(Errno error, String extraData) {
-                    throw new PosixException("native error " + error.description() + " " + extraData);
-                }
-
-                @Override
-                public void error(Errno error, String methodName, String extraData) {
-                    throw new PosixException("native error calling " + methodName + ": " + error.description() + " " + extraData);
-                }
-
                 @Override
                 public boolean isVerbose() {
                     return VERBOSE;
