@@ -33,7 +33,7 @@
   <properties>
     <revision>3.1.19-2</revision>
     <changelist>-SNAPSHOT</changelist>
-    <jenkins.version>2.361.4</jenkins.version>
+    <jenkins.version>2.426.3</jenkins.version>
     <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     <spotless.check.skip>false</spotless.check.skip>
   </properties>
@@ -44,7 +44,7 @@
       <artifactId>jnr-posix</artifactId>
       <version>3.1.19</version>
       <exclusions>
-        <!-- Provided by Jenkins core -->
+        <!-- Provided by asm-api plugin -->
         <exclusion>
           <groupId>org.ow2.asm</groupId>
           <artifactId>asm</artifactId>
@@ -66,6 +66,11 @@
           <artifactId>asm-util</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>asm-api</artifactId>
+      <version>9.6-3.v2e1fa_b_338cd7</version>
     </dependency>
   </dependencies>
 
