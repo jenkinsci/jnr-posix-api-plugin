@@ -42,7 +42,7 @@
     <dependency>
       <groupId>com.github.jnr</groupId>
       <artifactId>jnr-posix</artifactId>
-      <version>3.1.19</version>
+      <version>3.1.20</version>
       <exclusions>
         <!-- Provided by asm-api plugin -->
         <exclusion>
