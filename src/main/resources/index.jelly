@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-  This plugin provides <a href="https://github.com/jnr/jnr-posix">jnr-posix</a> API for other plugins.
+  This plugin provides <a href="https://github.com/jnr/jnr-posix">jnr-posix</a> API (v${revision}) for other plugins.
 </div>

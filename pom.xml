@@ -10,7 +10,7 @@
 
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>jnr-posix-api</artifactId>
-  <version>${revision}${changelist}</version>
+  <version>${revision}-${changelist}</version>
   <packaging>hpi</packaging>
   <name>jnr-posix API Plugin</name>
   <description>Plugin providing jnr-posix API for other plugins.</description>
@@ -31,8 +31,8 @@
   </scm>
 
   <properties>
-    <revision>3.1.19-3</revision>
-    <changelist>-SNAPSHOT</changelist>
+    <revision>3.1.19</revision>
+    <changelist>999999-SNAPSHOT</changelist>
     <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
     <jenkins.baseline>2.452</jenkins.baseline>
     <jenkins.version>${jenkins.baseline}.4</jenkins.version>
@@ -50,12 +50,11 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
   <dependencies>
     <dependency>
       <groupId>com.github.jnr</groupId>
       <artifactId>jnr-posix</artifactId>
-      <version>3.1.19</version>
+      <version>${revision}</version>
       <exclusions>
         <!-- Provided by asm-api plugin -->
         <exclusion>
@@ -85,18 +84,24 @@
       <artifactId>asm-api</artifactId>
     </dependency>
   </dependencies>
-
   <repositories>
     <repository>
       <id>repo.jenkins-ci.org</id>
       <url>https://repo.jenkins-ci.org/public/</url>
     </repository>
   </repositories>
-
   <pluginRepositories>
     <pluginRepository>
       <id>repo.jenkins-ci.org</id>
       <url>https://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
+  <build>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+  </build>
 </project>
